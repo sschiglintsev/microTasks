@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "./Header";
 import Body from "./Body";
 import TopCars from "./TopCars";
@@ -11,6 +11,12 @@ const topCars = [
 ]
 
 function App() {
+    let [a,setA] =useState(1)
+
+    const onClickButton1 = () => {
+        setA(++a)
+        console.log(a)
+    }
     const onClickButton = (age: number) => {
         console.log(age)
     }
@@ -19,7 +25,8 @@ function App() {
             <Header title={'NEW HEADER'}/>
             <Body titleForBody={'NEW BODY'}/>
             <TopCars topCar={topCars}/>
-            <Button callBack={()=>onClickButton(77)} nameButton={'Age'}/>
+            <Button callBack={()=>onClickButton(77)} nameButton={77}/>
+            <Button callBack={onClickButton1} nameButton={a}/>
         </div>
     );
 }
